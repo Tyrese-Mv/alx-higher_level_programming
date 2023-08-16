@@ -6,3 +6,4 @@ def uniq_add(my_list=[]):
         if element not in uniq_num:
             total += element
             uniq_num.add(element)
+    return total
