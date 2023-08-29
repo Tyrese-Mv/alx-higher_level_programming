@@ -19,14 +19,14 @@ class Square:
     Arg:
         self: self
     """
-    def size(self):
+    def get_size(self):
         return self.__size
     """
     Setter
     Arg:
         self: self
     """
-    def size(self, value):
+    def set_size(self, value):
         if int(value) >= 0:
             self.__size = value
         elif not isinstance(value, int):
