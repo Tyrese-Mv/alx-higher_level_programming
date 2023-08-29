@@ -19,5 +19,5 @@ class Square:
     Arg:
         self: the size of the instatiated square
     """
-    def area(size):
-        return size**size
+    def area(self):
+        return self**self
