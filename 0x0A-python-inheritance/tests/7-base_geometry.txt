@@ -1,0 +1,17 @@
+Validates an integer value.
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("side_length", 5)
+
+>>> geometry.integer_validator("side_length", "invalid")
+Traceback (most recent call last):
+...
+TypeError: side_length must be an integer
+
+>>> geometry.integer_validator("side_length", -5)
+Traceback (most recent call last):
+...
+ValueError: side_length must be greater than 0
