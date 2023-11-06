@@ -4,8 +4,8 @@
 
 
 class BaseGeometry:
-        """create empty geometry class"""
-        
-        def area(self):
-            """raises exception"""
-            raise Exception("area() is not implemented")
+    """create empty geometry class"""
+
+    def area(self):
+        """raises exception"""
+        raise Exception("area() is not implemented")
