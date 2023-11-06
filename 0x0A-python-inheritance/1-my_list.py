@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Inherits from list"""
+"""Inherits fiom list"""
 class MyList(list):
+    """sorts a list in ascending order"""
     def print_sorted(self):
-        """sorts a list in ascending order"""
         self.sort()
         print(self)
 
