@@ -10,12 +10,15 @@ save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
 load_from_json_file = __import__("5-load_from_json_file").load_from_json_file
 
 
-arguments = []
-if os.path.exists('add_item.json') and os.path.getsize('add_item.json') != 0:
-    arguments = load_from_json_file('add_item.json')
+def add_items_to_list(arguments):
+    new_list = load_from_json_file('add_item.json') or []
 
-if len(sys.argv) > 1:
-    for idx in sys.argv[1:]:
-        arguments.append(idx))
+    new_list.extend(arguments)
 
-   save_to_json_file(arguments, 'add_item.json')
+    save_to_json_file(new_list, 'add_item.json')
+
+if __name__ == "__main__":
+    arguments  sys.argv[1:]
+
+    if arguments:
+        add_items_to_list(arguments)
