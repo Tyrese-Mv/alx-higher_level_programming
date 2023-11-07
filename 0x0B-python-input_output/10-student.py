@@ -20,6 +20,6 @@ class Student:
     Args:
         attrs: none by default
     """
-        if attrs = None:
+        if attrs == None:
             return self.__dict__
         return {key: getattr(self, key) for key in attrs if hasattr(self,key)}
