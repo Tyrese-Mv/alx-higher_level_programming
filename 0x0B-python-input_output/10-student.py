@@ -18,4 +18,4 @@ class Student():
     """
         if attrs = None:
             return self.__dict__
-        return {key: value for key, value in self.__dict__.items() if key in attrs}
+        return {key: getattr(self, key) for key in attrs if hasattr(self,key)}
