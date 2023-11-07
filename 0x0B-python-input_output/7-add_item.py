@@ -16,7 +16,7 @@ def add_items_to_list(arguments):
     save_to_json_file(new_list, 'add_item.json')
 
 if __name__ == "__main__":
-    arguments  sys.argv[1:]
+    arguments = sys.argv[1:]
 
     if arguments:
         add_items_to_list(arguments)
