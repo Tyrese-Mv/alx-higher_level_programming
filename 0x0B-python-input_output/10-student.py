@@ -2,7 +2,7 @@
 """Student"""
 
 
-class Student():
+class Student:
 
     """Student class"""
     def __init__(self, first_name, last_name, age):
