@@ -16,6 +16,6 @@ class Student():
     Args:
         attrs: none by default
     """
-        if attrs is None:
+        if attrs = None:
             return self.__dict__
         return {key: value for key, value in self.__dict__.items() if key in attrs}
