@@ -16,7 +16,7 @@ if __name__ == "__main__":
         arguments = load_from_json_file('add_item.json')
 
     if len(sys.argv) > 1:
-        for idx in range(1, len(sys.argv):
-                arguments.append(str(sys.argv[idx]))
+        for idx in sys.argv[1:]:
+                arguments.append(idx))
 
     save_to_json_file(arguments, 'add_item.json')
