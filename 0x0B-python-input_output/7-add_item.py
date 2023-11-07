@@ -18,4 +18,4 @@ if len(sys.argv) > 1:
     for idx in sys.argv[1:]:
         arguments.append(idx))
 
-save_to_json_file(arguments, 'add_item.json')
+   save_to_json_file(arguments, 'add_item.json')
