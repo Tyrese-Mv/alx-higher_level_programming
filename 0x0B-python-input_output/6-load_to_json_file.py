@@ -5,7 +5,7 @@
 import json
 
 
-def load_to_json_file(filename):
+def load_from_json_file(filename):
     """converter
     Arg:
         filename: name of the file
