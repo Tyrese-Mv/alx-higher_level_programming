@@ -9,15 +9,16 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-_
 
     def to_json(self, attrs=None):
 
-    """instance function
-    Args:
-        attrs: none by default
-    """
-        if attrs == None:
+        """instance function
+
+
+        Args:
+            Attrs: none by default
+        """
+        if attrs is None:
             return self.__dict__
         new_dict = {}
         for item in attrs:
