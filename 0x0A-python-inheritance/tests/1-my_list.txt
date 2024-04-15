@@ -1,0 +1,36 @@
+Tests for 1-my_list
+
+>>> MyList = __import__('1-my_list').MyList
+
+Test Cases
+
+APPEND NUMBERS
+>>> my_list = MyList()
+>>> my_list.append(9)
+>>> my_list.append(5)
+>>> my_list.append(3)
+>>> my_list.append(89)
+>>> my_list.append(7)
+>>> my_list
+[9, 5, 3, 89, 7]
+
+
+
+SORT LIST
+>>> my_list.print_sorted()
+[3, 5, 7, 9, 89]
+
+
+
+REPEATED NUMBERS
+>>> my_list = MyList([4, 4, 5, 5, 1, 2, 3])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 4, 5, 5]
+
+
+
+
+NEGATIVE NUMBERS INCLUDED
+>>> my_list = MyList([-4, 4, -5, 5, 1, 2, 3])
+>>> my_list.print_sorted()
+[-5, -4, 1, 2, 3, 4, 5]
