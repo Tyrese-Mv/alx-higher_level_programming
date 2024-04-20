@@ -97,3 +97,16 @@ class Rectangle(Base):
     def __str__(self):
         return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id, self.x, self.y, self.width, self.height)
        
+    def update(self, *args):
+        for index in range(len(args)):
+            match index:
+                case 0:
+                    self.id = args[index]
+                case 1:
+                    self.width = args[index]
+                case 2:
+                    self.height = args[index]
+                case 3:
+                    self.x = args[index]
+                case 4:
+                    self.y = args[index]
