@@ -84,4 +84,7 @@ class Rectangle(Base):
             if key == "x" or key == "y":
                 if int(val) < 0:
                     raise ValueError("{} must be >= 0".format(key))
+    
+    def area(self):
+        return self.width * self.height
        
