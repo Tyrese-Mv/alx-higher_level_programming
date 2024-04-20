@@ -97,16 +97,33 @@ class Rectangle(Base):
     def __str__(self):
         return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id, self.x, self.y, self.width, self.height)
        
-    def update(self, *args):
-        for index in range(len(args)):
-            match index:
-                case 0:
-                    self.id = args[index]
-                case 1:
-                    self.width = args[index]
-                case 2:
-                    self.height = args[index]
-                case 3:
-                    self.x = args[index]
-                case 4:
-                    self.y = args[index]
+    def update(self, *args, **kwargs):
+        if len(args) > 0:
+            for index in range(len(args)):
+                match index:
+                    case 0:
+                        self.id = args[index]
+                    case 1:
+                        self.width = args[index]
+                    case 2:
+                        self.height = args[index]
+                    case 3:
+                        self.x = args[index]
+                    case 4:
+                        self.y = args[index]
+        else:
+            for key, val in kwargs.items():
+                match key:
+                    case "id":
+                        self.id = val
+                    case "width":
+                        self.width = val
+                    case "height":
+                        self.height = val
+                    case "x":
+                        self.x = val
+                    case "y":
+                        self.y = val
+        
+        
+
