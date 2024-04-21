@@ -9,7 +9,7 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         
         super().__init__(id)
-        Rectangle.__validation(self, width=width, height=height, x=x, y=y)
+        Rectangle._validation(self, width=width, height=height, x=x, y=y)
         self.__width = width
         self.__height = height
         self.__x = x
@@ -67,7 +67,7 @@ class Rectangle(Base):
         else:
             raise ValueError("y must be >= 0")
 
-    def __validation(self, **kwargs):
+    def _validation(self, **kwargs):
         """Validates the instance attributes
         Raises:
             TypeError: <name of the attribute> must be an integer
