@@ -2,6 +2,7 @@
 
 """Base Module"""
 import json
+import os
 
 class Base:
     """Base Class"""
@@ -22,7 +23,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        with open("{}.json".format(list_objs[0].__class__.__name__), "w") as file:
+        with open("{}.json".format(cls.__name__), "w") as file:
             if list_objs is None:
                 objects = []
             else:
@@ -34,7 +35,7 @@ class Base:
         if json_string is None:
             return []
         else:
-            return json.loads(json_string)
+            return json.load(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -48,3 +49,13 @@ class Base:
             return None
         obj.update(**dictionary)
         return obj
+
+    @classmethod
+    def load_from_file(cls):
+        if not os.path.exists("{}.json".format(cls.__name__)):
+            return []
+        with open("{}.json".format(cls.__name__), "r" ) as file:
+            
+            file_content =  cls.from_json_string(file)
+            return file_content
+        ### to be continued
