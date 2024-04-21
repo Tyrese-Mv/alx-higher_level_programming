@@ -43,3 +43,10 @@ class Square(Rectangle):
                         self.x = val
                     case "y":
                         self.y = val
+    def to_dictionary(self):
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
