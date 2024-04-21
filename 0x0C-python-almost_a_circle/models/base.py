@@ -27,7 +27,7 @@ class Base:
                 objects = []
             else:
                 objects = [x.to_dictionary() for x in list_objs]
-            Base.to_json_string(objects)
+            file.write(cls.to_json_string(objects))
     
     @staticmethod
     def from_json_string(json_string):
@@ -35,3 +35,16 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if "size" in dictionary.keys():
+            obj =  Square(1)
+        elif "width" in dictionary.keys():
+            obj =  Rectangle(1, 1)
+        else:
+            return None
+        obj.update(**dictionary)
+        return obj
