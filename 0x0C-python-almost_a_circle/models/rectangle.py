@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Rectangle Module"""
 
 from models.base import Base
