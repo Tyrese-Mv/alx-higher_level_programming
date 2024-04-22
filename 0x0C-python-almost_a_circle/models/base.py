@@ -32,18 +32,18 @@ class Base:
     
     @staticmethod
     def from_json_string(json_string):
-        if json_string is None:
+        if json_string is None or json_string == "":
             return []
         else:
-            return json.load(json_string)
+            return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
         from models.rectangle import Rectangle
         from models.square import Square
-        if "size" in dictionary.keys():
+        if cls.__name__ == "Square":
             obj =  Square(1)
-        elif "width" in dictionary.keys():
+        elif cls.__name__ == "Rectangle":
             obj =  Rectangle(1, 1)
         else:
             return None
@@ -52,10 +52,11 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        if not os.path.exists("{}.json".format(cls.__name__)):
+        filename = "{}.json".format(cls.__name__)
+        if not os.path.exists(filename):
             return []
-        with open("{}.json".format(cls.__name__), "r" ) as file:
-            
-            file_content =  cls.from_json_string(file)
-            return file_content
-        ### to be continued
+
+        with open(filename, "r") as file:
+            json_string = file.read()
+            dictionaries = cls.from_json_string(json_string)
+            return [cls.create(**dic) for dic in dictionaries]
