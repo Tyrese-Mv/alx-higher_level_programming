@@ -3,6 +3,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
@@ -18,8 +19,12 @@ class Square(Rectangle):
         self.width = value
 
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id, self.x, self.y, self.width)
-    
+        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
+                                             self.id,
+                                             self.x,
+                                             self.y,
+                                             self.width)
+
     def update(self, *args, **kwargs):
         if (args and len(args) > 0):
             for index in range(len(args)):
@@ -43,6 +48,7 @@ class Square(Rectangle):
                         self.x = val
                     case "y":
                         self.y = val
+
     def to_dictionary(self):
         return {
             "id": self.id,

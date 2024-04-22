@@ -3,11 +3,12 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """Rectangle class"""
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
-        
+
         super().__init__(id)
         Rectangle._validation(self, width=width, height=height, x=x, y=y)
         self.__width = width
@@ -84,19 +85,24 @@ class Rectangle(Base):
             if key == "x" or key == "y":
                 if int(val) < 0:
                     raise ValueError("{} must be >= 0".format(key))
-    
+
     def area(self):
         return self.width * self.height
-    
+
     def display(self):
         print("\n" * self.y, end="")
         for _ in range(self.height):
             print("{}".format(" " * self.x if self.x > 0 else ""), end="")
             print("#" * self.width)
-    
+
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id, self.x, self.y, self.width, self.height)
-       
+        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                                self.id,
+                                                self.x,
+                                                self.y,
+                                                self.width,
+                                                self.height)
+
     def update(self, *args, **kwargs):
         if len(args) > 0:
             for index in range(len(args)):
@@ -124,7 +130,7 @@ class Rectangle(Base):
                         self.x = val
                     case "y":
                         self.y = val
-    
+
     def to_dictionary(self):
         return {
             "id": self.id,
@@ -133,6 +139,3 @@ class Rectangle(Base):
             "x": self.x,
             "y": self.y
         }
-        
-        
-
