@@ -15,14 +15,33 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """size getter
+
+        Returns:
+            int: width of the rectangle
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """updates width value
+
+        Args:
+            value (int): value used to update width
+
+        Raises:
+            TypeError: width must be an integer
+            ValueError: width must be > 0
+        """
         Rectangle._validation(self, width=value, height=value)
         self.width = value
 
     def __str__(self):
+        """string representation of the square class
+
+        Returns:
+            _type_: [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
         return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
                                              self.id,
                                              self.x,
@@ -30,6 +49,8 @@ class Square(Rectangle):
                                              self.width)
 
     def update(self, *args, **kwargs):
+        """Updates the instance with values passed in
+        """
         if (args and len(args) > 0):
             for index in range(len(args)):
                 match index:
@@ -54,6 +75,10 @@ class Square(Rectangle):
                         self.y = val
 
     def to_dictionary(self):
+        """dictionary representation of the instance
+        Returns:
+            _type_: dictionary
+        """
         return {
             "id": self.id,
             "size": self.size,
