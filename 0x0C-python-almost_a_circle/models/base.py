@@ -4,10 +4,11 @@
 import json
 import os
 
+
 class Base:
     """Base Class"""
     __nb_objects = 0
-    
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
@@ -29,7 +30,7 @@ class Base:
             else:
                 objects = [x.to_dictionary() for x in list_objs]
             file.write(cls.to_json_string(objects))
-    
+
     @staticmethod
     def from_json_string(json_string):
         if json_string is None or json_string == "":
@@ -42,9 +43,9 @@ class Base:
         from models.rectangle import Rectangle
         from models.square import Square
         if cls.__name__ == "Square":
-            obj =  Square(1)
+            obj = Square(1)
         elif cls.__name__ == "Rectangle":
-            obj =  Rectangle(1, 1)
+            obj = Rectangle(1, 1)
         else:
             return None
         obj.update(**dictionary)
