@@ -9,6 +9,15 @@ class Rectangle(Base):
     """Rectangle class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """rectangle constructor
+
+        Args:
+            width (int): _description_
+            height (int): _description_
+            x (int, optional): _description_. Defaults to 0.
+            y (int, optional): _description_. Defaults to 0.
+            id (int, optional): _description_. Defaults to None.
+        """
         super().__init__(id)
         Rectangle._validation(self, width=width, height=height, x=x, y=y)
         self.__width = width
