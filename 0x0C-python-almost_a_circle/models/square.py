@@ -12,6 +12,14 @@ class Square(Rectangle):
         Rectangle (class): inherits rectangle
     """
     def __init__(self, size, x=0, y=0, id=None):
+        """square constructor
+
+        Args:
+            size (_type_): _description_
+            x (int, optional): _description_. Defaults to 0.
+            y (int, optional): _description_. Defaults to 0.
+            id (_type_, optional): _description_. Defaults to None.
+        """
         super().__init__(size, size, x, y, id)
 
     @property
