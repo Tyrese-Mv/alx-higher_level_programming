@@ -50,30 +50,26 @@ class Square(Rectangle):
                                              self.width)
 
     def update(self, *args, **kwargs):
-        """Updates the instance with values passed in
-        """
-        if (args and len(args) > 0):
-            for index in range(len(args)):
-                match index:
-                    case 0:
-                        self.id = args[index]
-                    case 1:
-                        self.size = args[index]
-                    case 2:
-                        self.x = args[index]
-                    case 3:
-                        self.y = args[index]
+        if args:
+            for index, value in enumerate(args):
+                if index == 0:
+                    self.id = value
+                elif index == 1:
+                    self.size = value
+                elif index == 2:
+                    self.x = value
+                elif index == 3:
+                    self.y = value
         else:
-            for key, val in kwargs.items():
-                match key:
-                    case "id":
-                        self.id = val
-                    case "size":
-                        self.size = val
-                    case "x":
-                        self.x = val
-                    case "y":
-                        self.y = val
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """dictionary representation of the instance
