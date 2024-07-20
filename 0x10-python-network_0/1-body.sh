@@ -1,3 +1,3 @@
 #!/bin/bash
 # Usage: ./script.sh <url>
-curl -s -w "%{http_code}" "$1" -o - | awk '/200$/{print x};{x=x"\n"$0}' | tail -n +2
+curl -s -o /dev/null -w "%{http_code}" "$1" | grep -q "200" && curl -s "$1"
