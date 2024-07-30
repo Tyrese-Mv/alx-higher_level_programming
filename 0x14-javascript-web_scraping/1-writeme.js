@@ -11,8 +11,6 @@ if (!filePath || !content) {
 fs.writeFile(filePath, content, 'utf-8', (err) => {
 	if (err) {
 		console.error(err);
-		return;
 	}
-	console.log('Content written successfully!');
 });
 
